@@ -142,7 +142,7 @@ long LinuxParser::ActiveJiffies(int pid) {
   return ActiveJiffies;
 }
 
-// TODO: Read and return the number of active jiffies for the system
+// Read and return the number of active jiffies for the system
 long LinuxParser::ActiveJiffies() {
   vector<string> CpuData = LinuxParser::CpuUtilization();
   long Activejiffies{0};
@@ -152,7 +152,7 @@ long LinuxParser::ActiveJiffies() {
   return Activejiffies;
 }
 
-// TODO: Read and return the number of idle jiffies for the system
+// Read and return the number of idle jiffies for the system
 long LinuxParser::IdleJiffies() {
   vector<string> CpuData = LinuxParser::CpuUtilization();
 
