@@ -238,7 +238,8 @@ string LinuxParser::Ram(int pid) {
       std::replace(line.begin(), line.end(), ':', ' ');
       std::istringstream linestream(line);
       while (linestream >> KeyName >> MemValue) {
-        if (KeyName == "VmSize") {
+        //using VmData to get actual memory usage not virtual memory.
+        if (KeyName == "VmData") {
           MemValueInMega = stoi(MemValue) / 1024;
           return to_string(MemValueInMega);
         }
@@ -300,7 +301,7 @@ long LinuxParser::UpTime(int pid) {
   if (filestream.is_open()) {
     std::getline(filestream, line);
     std::istringstream linestream(line);
-    for (int counter = 0; counter < 14; counter++) {
+    for (int counter = 0; counter < 22; counter++) {
       linestream >> uptime;
     }
   }
