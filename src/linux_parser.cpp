@@ -294,8 +294,8 @@ string LinuxParser::User(int pid) {
 // Read and return the uptime of a process
 long LinuxParser::UpTime(int pid) {
   string line;
-  string uptime;
-  long uptimeLong;
+  string uptime{"0"};
+  long uptimeLong{0};
   std::ifstream filestream(kProcDirectory + to_string(pid) + kStatFilename);
   if (filestream.is_open()) {
     std::getline(filestream, line);
